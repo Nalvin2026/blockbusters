@@ -80,7 +80,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'ih',       // short i — insect
+    letterSound: 'in',       // short i — "in" avoids TTS spelling out I.H
     correctAnswer: 'i',
     options: ['i', 'l', 'y'],
   },
