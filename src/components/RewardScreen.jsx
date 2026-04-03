@@ -3,7 +3,7 @@ import styles from './RewardScreen.module.css';
 
 const REWARD_ITEMS = [
   { emoji: '💎', name: 'Diamond' },
-  { emoji: '🪙', name: 'Gold Ingot' },
+  { emoji: '🪙', name: 'Gold Coin' },
   { emoji: '⛏️', name: 'Iron Pickaxe' },
   { emoji: '⚔️', name: 'Wooden Sword' },
   { emoji: '💚', name: 'Emerald' },
