@@ -53,7 +53,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'fuh',      // f
+    letterSound: 'fah',      // f
     correctAnswer: 'f',
     options: ['f', 'j', 'q'],
   },
@@ -143,7 +143,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'tuh',      // t
+    letterSound: 'tah',      // t
     correctAnswer: 't',
     options: ['t', 'y', 'i'],
   },
