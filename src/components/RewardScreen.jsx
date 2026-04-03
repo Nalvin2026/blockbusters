@@ -59,7 +59,7 @@ export default function RewardScreen({ sessionStats, audio, onContinue }) {
       if (window.speechSynthesis) {
         window.speechSynthesis.cancel();
         const u = new SpeechSynthesisUtterance(
-          `${praise} You got a ${reward.name}!`
+          `${praise} You got a ${reward.name} and ${stars} ${stars === 1 ? 'star' : 'stars'}!`
         );
         u.lang = 'en-GB';
         u.rate = 0.85;
