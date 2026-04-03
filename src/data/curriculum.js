@@ -134,7 +134,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'sss',      // s — hissing sibilant
+    letterSound: 'sah',      // s — "sah" avoids TTS spelling out S.S.S
     correctAnswer: 's',
     options: ['s', 'c', 'g'],
   },
