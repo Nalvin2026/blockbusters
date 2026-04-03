@@ -1,0 +1,100 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 20;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: popIn 0.18s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.warning {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: #ff4444;
+  margin: 0;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.sub {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #aaa;
+  margin: 0;
+}
+
+/*
+ * Creeper head — pixel art via box-shadow.
+ * Base element: 8×8px at top:4px left:4px (so shadow at 0,0 offset
+ * maps to pixel col 0, row 0 of the 8×10 face grid).
+ * Each pixel = 8px × 8px, drawn with spread: 4px on a 0×0 shadow.
+ *
+ * Face grid (8 wide × 10 tall):
+ * Row 0-1: all green (head top)
+ * Row 2-3: eyes (cols 1-2, 5-6 = dark)
+ * Row 4:   nose bridge (cols 3-4 = dark)
+ * Row 5-6: nose/mouth (cols 2-5 = dark)
+ * Row 7:   frown (cols 1-2, 5-6 = dark)
+ * Row 8-9: all green (head bottom)
+ */
+.creeperHead {
+  position: relative;
+  width: 64px;
+  height: 80px;
+  background: #5d9e3e;
+  outline: 3px solid #2d5a1b;
+  image-rendering: pixelated;
+}
+
+.creeperHead::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  box-shadow:
+    /* Row 2 — left eye */
+    8px 16px 0 4px #1a2e0a,
+    16px 16px 0 4px #1a2e0a,
+    /* Row 2 — right eye */
+    40px 16px 0 4px #1a2e0a,
+    48px 16px 0 4px #1a2e0a,
+    /* Row 3 — left eye */
+    8px 24px 0 4px #1a2e0a,
+    16px 24px 0 4px #1a2e0a,
+    /* Row 3 — right eye */
+    40px 24px 0 4px #1a2e0a,
+    48px 24px 0 4px #1a2e0a,
+    /* Row 4 — nose bridge */
+    24px 32px 0 4px #1a2e0a,
+    32px 32px 0 4px #1a2e0a,
+    /* Row 5 — mouth top */
+    16px 40px 0 4px #1a2e0a,
+    24px 40px 0 4px #1a2e0a,
+    32px 40px 0 4px #1a2e0a,
+    40px 40px 0 4px #1a2e0a,
+    /* Row 6 — mouth bottom */
+    16px 48px 0 4px #1a2e0a,
+    24px 48px 0 4px #1a2e0a,
+    32px 48px 0 4px #1a2e0a,
+    40px 48px 0 4px #1a2e0a,
+    /* Row 7 — frown corners */
+    8px 56px 0 4px #1a2e0a,
+    16px 56px 0 4px #1a2e0a,
+    40px 56px 0 4px #1a2e0a,
+    48px 56px 0 4px #1a2e0a;
+}

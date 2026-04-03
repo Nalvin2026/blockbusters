@@ -60,6 +60,98 @@
     inset 3px 3px 0 rgba(255,255,255,0.08);
 }
 
+/* XP chest animation box */
+.xpBox {
+  position: relative;
+  overflow: visible;
+}
+
+.chestScene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 70px;
+}
+
+/* Mini treasure chest */
+.miniChest {
+  position: relative;
+  width: 80px;
+  height: 64px;
+  perspective: 300px;
+}
+
+.miniLid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--brown);
+  border: 3px solid var(--gold);
+  box-shadow:
+    inset -3px -3px 0 rgba(0,0,0,0.4),
+    inset 3px 3px 0 rgba(255,255,255,0.15);
+  transform-origin: center bottom;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.miniChestOpen .miniLid {
+  transform: rotateX(-130deg);
+}
+
+.miniBody {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--brown);
+  border: 3px solid var(--gold);
+  border-top: none;
+  box-shadow:
+    inset -3px -3px 0 rgba(0,0,0,0.4),
+    inset 3px 3px 0 rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.miniLock {
+  font-size: 16px;
+}
+
+/* Coins flying into the chest */
+@keyframes flyToCentre {
+  0%   { transform: translate(var(--dx), var(--dy)) scale(1.1); opacity: 1; }
+  75%  { opacity: 1; }
+  100% { transform: translate(0, 10px) scale(0); opacity: 0; }
+}
+
+.coin {
+  position: absolute;
+  font-size: 22px;
+  animation: flyToCentre 0.45s ease-in forwards;
+  pointer-events: none;
+}
+
+/* XP number popping in after chest closes */
+@keyframes xpPop {
+  0%   { transform: scale(0.3); opacity: 0; }
+  70%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.xpAmount {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--gold);
+  text-shadow: 1px 1px 0 #000;
+  animation: xpPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
 .statValue {
   font-family: var(--font-pixel);
   font-size: 20px;

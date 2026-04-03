@@ -3,11 +3,17 @@
   flex-direction: column;
   align-items: center;
   min-height: 100%;
+  position: relative;
   background: linear-gradient(to bottom, #3a2a1a 0%, #2a1a0a 100%);
   /* Dirt/stone cave feel */
   background-image:
     linear-gradient(to bottom, #3a2a1a 0%, #2a1a0a 100%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%232a1a0a'/%3E%3Crect x='0' y='0' width='8' height='8' fill='%23332211' opacity='0.4'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23221100' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* Desert Ruins biome */
+.desertScreen {
+  background: linear-gradient(to bottom, #c4813a 0%, #7a4010 100%);
 }
 
 .blocksRow {
@@ -35,6 +41,32 @@
     inset -3px -3px 0 #5C3E25,
     inset 3px 3px 0 #A8835A;
   opacity: 0.5;
+}
+
+/* Sand blocks for desert zone */
+.sandBlock {
+  background: #f5c842;
+  box-shadow:
+    inset -3px -3px 0 #c9972a,
+    inset 3px 3px 0 #fae47d;
+}
+
+.sandBroken {
+  background: #8a6a10;
+  box-shadow:
+    inset -3px -3px 0 #5C3E25,
+    inset 3px 3px 0 #A8835A;
+  opacity: 0.5;
+}
+
+@keyframes sandFall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  15%  { transform: translateY(3px) rotate(2deg); opacity: 1; }
+  100% { transform: translateY(56px) rotate(8deg); opacity: 0; }
+}
+
+.falling {
+  animation: sandFall 0.55s ease-in forwards;
 }
 
 @keyframes crumble {

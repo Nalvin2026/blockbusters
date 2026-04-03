@@ -1,11 +1,14 @@
 import { useState, useMemo } from 'react';
 import XPBar from './XPBar';
 import TaskEngine from './TaskEngine';
+import DesertMob from './DesertMob';
 import { curriculum } from '../data/curriculum';
 import styles from './MiningExpedition.module.css';
 
 const TOTAL_BLOCKS = 10;
 const BONUS_XP_SESSION = 20;
+// Show the creeper mob after completing these block indices (0-based)
+const MOB_AFTER = new Set([2, 5]);
 
 function shuffleArray(arr) {
   const copy = [...arr];
@@ -17,6 +20,7 @@ function shuffleArray(arr) {
 }
 
 export default function MiningExpedition({
+  zone,
   progress,
   xpProgress,
   audio,
@@ -25,12 +29,18 @@ export default function MiningExpedition({
   completeSession,
   onComplete,
 }) {
-  // Randomly pick 10 tasks once on mount (useMemo with empty deps)
-  const tasks = useMemo(() => shuffleArray(curriculum).slice(0, TOTAL_BLOCKS), []);
+  const phase = zone === 'desert' ? 2 : 1;
+  const isDesert = zone === 'desert';
+
+  const tasks = useMemo(() => {
+    const pool = curriculum.filter((t) => t.phase === phase);
+    return shuffleArray(pool).slice(0, TOTAL_BLOCKS);
+  }, [phase]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [brokenBlocks, setBrokenBlocks] = useState(Array(TOTAL_BLOCKS).fill(false));
   const [crumblingIndex, setCrumblingIndex] = useState(null);
+  const [showMob, setShowMob] = useState(false);
   const [sessionStats, setSessionStats] = useState({ firstAttemptCorrect: 0 });
 
   function handleCorrect(wasFirstAttempt) {
@@ -44,7 +54,6 @@ export default function MiningExpedition({
       firstAttemptCorrect: prev.firstAttemptCorrect + (wasFirstAttempt ? 1 : 0),
     }));
 
-    // Crumble animation
     setCrumblingIndex(currentIndex);
     setBrokenBlocks((prev) => {
       const next = [...prev];
@@ -52,22 +61,33 @@ export default function MiningExpedition({
       return next;
     });
 
+    const isLastBlock = currentIndex === TOTAL_BLOCKS - 1;
+    const triggerMob = isDesert && !isLastBlock && MOB_AFTER.has(currentIndex);
+    const delay = triggerMob ? 2400 : 500;
+
+    if (triggerMob) {
+      setTimeout(() => setShowMob(true), 500);
+    }
+
     setTimeout(() => {
       setCrumblingIndex(null);
-      if (currentIndex === TOTAL_BLOCKS - 1) {
-        // Session complete
+      setShowMob(false);
+      if (isLastBlock) {
         completeSession();
         addXP(BONUS_XP_SESSION);
         const finalStats = {
           firstAttemptCorrect: sessionStats.firstAttemptCorrect + (wasFirstAttempt ? 1 : 0),
           totalTasks: TOTAL_BLOCKS,
-          xpEarned: sessionStats.firstAttemptCorrect * 10 + (wasFirstAttempt ? 10 : 5) + BONUS_XP_SESSION,
+          xpEarned:
+            sessionStats.firstAttemptCorrect * 10 +
+            (wasFirstAttempt ? 10 : 5) +
+            BONUS_XP_SESSION,
         };
         onComplete(finalStats);
       } else {
         setCurrentIndex((i) => i + 1);
       }
-    }, 500);
+    }, delay);
   }
 
   function handleWrong() {
@@ -78,18 +98,22 @@ export default function MiningExpedition({
   const task = tasks[currentIndex];
 
   return (
-    <div className={styles.screen}>
+    <div className={[styles.screen, isDesert ? styles.desertScreen : ''].join(' ')}>
       <XPBar progress={progress} xpProgress={xpProgress} />
 
-      {/* Block progress bar */}
       <div className={styles.blocksRow} aria-label="Progress">
         {brokenBlocks.map((broken, i) => (
           <div
             key={i}
             className={[
               styles.blockIcon,
-              broken ? styles.broken : '',
-              crumblingIndex === i ? styles.crumbling : '',
+              isDesert ? styles.sandBlock : '',
+              broken ? (isDesert ? styles.sandBroken : styles.broken) : '',
+              crumblingIndex === i
+                ? isDesert
+                  ? styles.falling
+                  : styles.crumbling
+                : '',
             ].join(' ')}
           />
         ))}
@@ -99,7 +123,6 @@ export default function MiningExpedition({
         Block {Math.min(currentIndex + 1, TOTAL_BLOCKS)} of {TOTAL_BLOCKS}
       </div>
 
-      {/* Task area */}
       <div className={styles.taskArea}>
         <TaskEngine
           key={task.id}
@@ -108,6 +131,8 @@ export default function MiningExpedition({
           onWrong={handleWrong}
         />
       </div>
+
+      {showMob && <DesertMob />}
     </div>
   );
 }

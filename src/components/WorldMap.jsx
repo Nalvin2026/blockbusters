@@ -6,7 +6,7 @@ const ZONES = [
     name: 'THE STONE MINE',
     emoji: '⛏️',
     description: 'Letters & Words',
-    unlocked: true,
+    minLevel: 1,
     biome: 'grass',
   },
   {
@@ -14,7 +14,7 @@ const ZONES = [
     name: 'DESERT RUINS',
     emoji: '🏜️',
     description: 'Unlock at Level 2',
-    unlocked: false,
+    minLevel: 2,
     biome: 'sand',
   },
   {
@@ -22,12 +22,12 @@ const ZONES = [
     name: 'OCEAN TEMPLE',
     emoji: '🌊',
     description: 'Unlock at Level 4',
-    unlocked: false,
+    minLevel: 4,
     biome: 'water',
   },
 ];
 
-export default function WorldMap({ onExplore, onBack }) {
+export default function WorldMap({ onExplore, onBack, progress }) {
   return (
     <div className={styles.screen}>
       <div className={styles.header}>
@@ -38,25 +38,28 @@ export default function WorldMap({ onExplore, onBack }) {
       </div>
 
       <div className={styles.zoneList}>
-        {ZONES.map((zone) => (
-          <div
-            key={zone.id}
-            className={[styles.zoneCard, !zone.unlocked ? styles.locked : ''].join(' ')}
-          >
-            <span className={styles.zoneEmoji}>{zone.emoji}</span>
-            <div className={styles.zoneInfo}>
-              <span className={styles.zoneName}>{zone.name}</span>
-              <span className={styles.zoneDesc}>{zone.description}</span>
+        {ZONES.map((zone) => {
+          const unlocked = progress.level >= zone.minLevel;
+          return (
+            <div
+              key={zone.id}
+              className={[styles.zoneCard, !unlocked ? styles.locked : ''].join(' ')}
+            >
+              <span className={styles.zoneEmoji}>{zone.emoji}</span>
+              <div className={styles.zoneInfo}>
+                <span className={styles.zoneName}>{zone.name}</span>
+                <span className={styles.zoneDesc}>{zone.description}</span>
+              </div>
+              {unlocked ? (
+                <button className={styles.exploreBtn} onClick={() => onExplore(zone.id)}>
+                  EXPLORE!
+                </button>
+              ) : (
+                <span className={styles.lockIcon}>🔒</span>
+              )}
             </div>
-            {zone.unlocked ? (
-              <button className={styles.exploreBtn} onClick={onExplore}>
-                EXPLORE!
-              </button>
-            ) : (
-              <span className={styles.lockIcon}>🔒</span>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

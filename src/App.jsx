@@ -19,6 +19,7 @@ const SCREENS = {
 export default function App() {
   const [screen, setScreen] = useState(SCREENS.HOME);
   const [sessionStats, setSessionStats] = useState(null);
+  const [selectedZone, setSelectedZone] = useState('grasslands');
 
   const audio = useAudio();
   const { progress, xpProgress, addXP, recordTaskResult, completeSession } = useProgress();
@@ -50,13 +51,18 @@ export default function App() {
 
         {screen === SCREENS.WORLD_MAP && (
           <WorldMap
-            onExplore={() => setScreen(SCREENS.EXPEDITION)}
+            onExplore={(zoneId) => {
+              setSelectedZone(zoneId);
+              setScreen(SCREENS.EXPEDITION);
+            }}
             onBack={() => setScreen(SCREENS.HOME)}
+            progress={progress}
           />
         )}
 
         {screen === SCREENS.EXPEDITION && (
           <MiningExpedition
+            zone={selectedZone}
             progress={progress}
             xpProgress={xpProgress}
             audio={audio}
@@ -80,6 +86,7 @@ export default function App() {
             sessionStats={sessionStats}
             progress={progress}
             xpProgress={xpProgress}
+            audio={audio}
             onPlayAgain={() => setScreen(SCREENS.WORLD_MAP)}
             onHome={() => setScreen(SCREENS.HOME)}
           />

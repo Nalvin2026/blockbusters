@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import LetterTap from '../tasks/LetterTap';
 import PictureMatch from '../tasks/PictureMatch';
+import DigraphSpot from '../tasks/DigraphSpot';
 
 /**
  * Routes a task object to the correct task UI component.
@@ -39,6 +40,10 @@ export default function TaskEngine({ task, onCorrect, onWrong }) {
 
   if (task.type === 'PICTURE_MATCH') {
     return <PictureMatch task={task} onCorrect={handleCorrect} onWrong={handleWrong} />;
+  }
+
+  if (task.type === 'DIGRAPH_SPOT') {
+    return <DigraphSpot task={task} onCorrect={handleCorrect} onWrong={handleWrong} />;
   }
 
   return null;

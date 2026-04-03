@@ -93,5 +93,40 @@ export function useAudio() {
     } catch (_) { /* silent fail */ }
   }, [getCtx]);
 
-  return { playCorrect, playWrong, playLevelComplete, playXPPing, getCtx };
+  /**
+   * Six metallic coin tinks timed to match the 6 coins flying into the chest.
+   * Each tink: sine wave with downward frequency sweep + quick decay.
+   * Scheduled ahead so each tink lands exactly when its coin animation ends.
+   */
+  const playCoins = useCallback(() => {
+    try {
+      const ctx = getCtx();
+      const now = ctx.currentTime;
+      // Frequencies, times (s), and gains for each of the 6 coins
+      // Times match CSS animation delays (0,100…500ms) + duration (450ms)
+      const tinks = [
+        { freq: 1800, t: 0.45, g: 0.22 },
+        { freq: 1600, t: 0.55, g: 0.20 },
+        { freq: 2000, t: 0.65, g: 0.18 },
+        { freq: 1700, t: 0.75, g: 0.16 },
+        { freq: 1900, t: 0.85, g: 0.14 },
+        { freq: 1500, t: 0.95, g: 0.12 },
+      ];
+      tinks.forEach(({ freq, t, g }) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + t);
+        osc.frequency.exponentialRampToValueAtTime(freq * 0.65, now + t + 0.1);
+        gain.gain.setValueAtTime(g, now + t);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + t + 0.1);
+        osc.start(now + t);
+        osc.stop(now + t + 0.12);
+      });
+    } catch (_) { /* silent fail */ }
+  }, [getCtx]);
+
+  return { playCorrect, playWrong, playLevelComplete, playXPPing, playCoins, getCtx };
 }
