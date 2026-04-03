@@ -33,37 +33,34 @@ function XPChestAnimation({ xpEarned, audio }) {
 
   return (
     <div className={`${styles.statBox} ${styles.xpBox}`}>
-      <div className={styles.chestScene}>
-        {/* Treasure chest — hidden once XP is revealed */}
-        {phase !== 'done' && (
+      {phase === 'done' ? (
+        // Done: render like a normal stat box — no chestScene wrapper
+        <span className={styles.xpAmount}>+{xpEarned}</span>
+      ) : (
+        // Animating: chest + flying coins inside fixed-height scene
+        <div className={styles.chestScene}>
           <div className={[styles.miniChest, phase === 'open' ? styles.miniChestOpen : ''].join(' ')}>
             <div className={styles.miniLid} />
             <div className={styles.miniBody}>
               <span className={styles.miniLock}>🔒</span>
             </div>
           </div>
-        )}
 
-        {/* Coins flying into the chest */}
-        {COINS.map((coin, i) => (
-          <span
-            key={i}
-            className={styles.coin}
-            style={{
-              '--dx': `${coin.dx}px`,
-              '--dy': `${coin.dy}px`,
-              animationDelay: `${coin.delay}ms`,
-            }}
-          >
-            🪙
-          </span>
-        ))}
-
-        {/* XP number revealed after chest closes */}
-        {phase === 'done' && (
-          <span className={styles.xpAmount}>+{xpEarned}</span>
-        )}
-      </div>
+          {COINS.map((coin, i) => (
+            <span
+              key={i}
+              className={styles.coin}
+              style={{
+                '--dx': `${coin.dx}px`,
+                '--dy': `${coin.dy}px`,
+                animationDelay: `${coin.delay}ms`,
+              }}
+            >
+              🪙
+            </span>
+          ))}
+        </div>
+      )}
       <span className={styles.statLabel}>XP Earned</span>
     </div>
   );
