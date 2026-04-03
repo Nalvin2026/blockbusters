@@ -107,7 +107,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'oh',       // short o — octopus
+    letterSound: 'aw',       // short o — "aw" avoids TTS reading it as the letter O
     correctAnswer: 'o',
     options: ['o', 'q', 'c'],
   },
