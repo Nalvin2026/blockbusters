@@ -139,6 +139,51 @@ export const curriculum = [
     options: ['s', 'c', 'g'],
   },
   {
+    id: 'lt_E',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'eh',       // short e — egg
+    correctAnswer: 'e',
+    options: ['e', 'k', 'v'],
+  },
+  {
+    id: 'lt_J',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'juh',      // j
+    correctAnswer: 'j',
+    options: ['j', 'a', 'm'],
+  },
+  {
+    id: 'lt_K',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'kuh',      // k — same /k/ sound as hard c
+    correctAnswer: 'k',
+    options: ['k', 'v', 'z'],
+  },
+  {
+    id: 'lt_L',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'luh',      // l
+    correctAnswer: 'l',
+    options: ['l', 'm', 'w'],
+  },
+  {
+    id: 'lt_Q',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'kwuh',     // qu — q almost always pairs with u
+    correctAnswer: 'q',
+    options: ['q', 'h', 'v'],
+  },
+  {
     id: 'lt_T',
     type: 'LETTER_TAP',
     phase: 1,
@@ -146,6 +191,60 @@ export const curriculum = [
     letterSound: 'tah',      // t
     correctAnswer: 't',
     options: ['t', 'y', 'i'],
+  },
+  {
+    id: 'lt_U',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'uh',       // short u — up, umbrella
+    correctAnswer: 'u',
+    options: ['u', 'k', 'j'],
+  },
+  {
+    id: 'lt_V',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'vuh',      // v
+    correctAnswer: 'v',
+    options: ['v', 'b', 'r'],
+  },
+  {
+    id: 'lt_W',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'wuh',      // w
+    correctAnswer: 'w',
+    options: ['w', 'k', 'r'],
+  },
+  {
+    id: 'lt_X',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'ks',       // x — as in fox, box
+    correctAnswer: 'x',
+    options: ['x', 'k', 'j'],
+  },
+  {
+    id: 'lt_Y',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'yuh',      // y — consonant y as in yes
+    correctAnswer: 'y',
+    options: ['y', 'v', 'n'],
+  },
+  {
+    id: 'lt_Z',
+    type: 'LETTER_TAP',
+    phase: 1,
+    layer: 'A',
+    letterSound: 'zuh',      // z
+    correctAnswer: 'z',
+    options: ['z', 'n', 'j'],
   },
 
   // ── PICTURE_MATCH ──────────────────────────────────────────────────────────
