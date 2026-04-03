@@ -9,142 +9,143 @@
 
 export const curriculum = [
   // ── LETTER_TAP ────────────────────────────────────────────────────────────
-  // letterSound uses phonetic spellings so TTS speaks the sound, not the name.
-  // e.g. C → "kuh" (not "see"), M → "mmm" (not "em")
+  // Letters are lowercase (more common in early reading).
+  // letterSound uses phonetic spellings tuned for en-GB TTS — the actual
+  // sound the letter makes, not its name.
   {
     id: 'lt_A',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'ah',       // short a, as in apple
-    correctAnswer: 'A',
-    options: ['A', 'H', 'V'],
+    letterSound: 'ah',       // short a — apple
+    correctAnswer: 'a',
+    options: ['a', 'h', 'v'],
   },
   {
     id: 'lt_B',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'buh',      // b sound
-    correctAnswer: 'B',
-    options: ['B', 'K', 'Z'],
+    letterSound: 'buh',      // b
+    correctAnswer: 'b',
+    options: ['b', 'k', 'z'],
   },
   {
     id: 'lt_C',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'kuh',      // hard c/k sound (not "see")
-    correctAnswer: 'C',
-    options: ['C', 'X', 'L'],
+    letterSound: 'kuh',      // hard c
+    correctAnswer: 'c',
+    options: ['c', 'x', 'l'],
   },
   {
     id: 'lt_D',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'duh',      // d sound
-    correctAnswer: 'D',
-    options: ['D', 'Y', 'W'],
+    letterSound: 'duh',      // d
+    correctAnswer: 'd',
+    options: ['d', 'y', 'w'],
   },
   {
     id: 'lt_F',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'fff',      // f sound — TTS will sustain the fricative
-    correctAnswer: 'F',
-    options: ['F', 'J', 'Q'],
+    letterSound: 'fuh',      // f
+    correctAnswer: 'f',
+    options: ['f', 'j', 'q'],
   },
   {
     id: 'lt_G',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'guh',      // hard g sound
-    correctAnswer: 'G',
-    options: ['G', 'U', 'Z'],
+    letterSound: 'gah',      // hard g — "gah" is clearer than "guh" for TTS
+    correctAnswer: 'g',
+    options: ['g', 'u', 'z'],
   },
   {
     id: 'lt_H',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'huh',      // h sound (breathy)
-    correctAnswer: 'H',
-    options: ['H', 'K', 'V'],
+    letterSound: 'hah',      // h — breathy, like a sigh
+    correctAnswer: 'h',
+    options: ['h', 'k', 'v'],
   },
   {
     id: 'lt_I',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'ih',       // short i, as in insect
-    correctAnswer: 'I',
-    options: ['I', 'L', 'Y'],
+    letterSound: 'ih',       // short i — insect
+    correctAnswer: 'i',
+    options: ['i', 'l', 'y'],
   },
   {
     id: 'lt_M',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'mmm',      // m sound — sustained nasal
-    correctAnswer: 'M',
-    options: ['M', 'W', 'X'],
+    letterSound: 'mmm',      // m — lips-together hum
+    correctAnswer: 'm',
+    options: ['m', 'w', 'x'],
   },
   {
     id: 'lt_N',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'nnn',      // n sound — sustained nasal
-    correctAnswer: 'N',
-    options: ['N', 'Z', 'U'],
+    letterSound: 'nuh',      // n — clearer than "nnn" for TTS
+    correctAnswer: 'n',
+    options: ['n', 'z', 'u'],
   },
   {
     id: 'lt_O',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'oh',       // short o, as in octopus
-    correctAnswer: 'O',
-    options: ['O', 'Q', 'C'],
+    letterSound: 'oh',       // short o — octopus
+    correctAnswer: 'o',
+    options: ['o', 'q', 'c'],
   },
   {
     id: 'lt_P',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'puh',      // p sound
-    correctAnswer: 'P',
-    options: ['P', 'F', 'J'],
+    letterSound: 'puh',      // p
+    correctAnswer: 'p',
+    options: ['p', 'f', 'j'],
   },
   {
     id: 'lt_R',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'rrr',      // r sound — sustained
-    correctAnswer: 'R',
-    options: ['R', 'K', 'B'],
+    letterSound: 'ruh',      // r — clearer than "rrr" for TTS
+    correctAnswer: 'r',
+    options: ['r', 'k', 'b'],
   },
   {
     id: 'lt_S',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'sss',      // s sound — sustained sibilant
-    correctAnswer: 'S',
-    options: ['S', 'C', 'G'],
+    letterSound: 'sss',      // s — hissing sibilant
+    correctAnswer: 's',
+    options: ['s', 'c', 'g'],
   },
   {
     id: 'lt_T',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'tuh',      // t sound
-    correctAnswer: 'T',
-    options: ['T', 'Y', 'I'],
+    letterSound: 'tuh',      // t
+    correctAnswer: 't',
+    options: ['t', 'y', 'i'],
   },
 
   // ── PICTURE_MATCH ──────────────────────────────────────────────────────────
