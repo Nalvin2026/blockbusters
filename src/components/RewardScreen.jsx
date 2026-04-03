@@ -27,14 +27,30 @@ export default function RewardScreen({ sessionStats, audio, onContinue }) {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Open chest after short delay
     const t1 = setTimeout(() => {
       audio.playLevelComplete();
       setChestOpen(true);
     }, 400);
-    const t2 = setTimeout(() => setShowContent(true), 900);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, [audio]);
+    const t2 = setTimeout(() => {
+      setShowContent(true);
+      // Speak the reward message once content is visible
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(
+          `Well done Ollie! You got a ${reward.name}!`
+        );
+        u.lang = 'en-GB';
+        u.rate = 0.85;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u);
+      }
+    }, 900);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.speechSynthesis?.cancel();
+    };
+  }, [audio, reward.name]);
 
   return (
     <div className={styles.screen}>
