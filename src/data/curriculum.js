@@ -116,7 +116,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'pu',       // p
+    letterSound: 'pah',      // p — "pah" reads as one syllable, not spelled out
     correctAnswer: 'p',
     options: ['p', 'f', 'j'],
   },
