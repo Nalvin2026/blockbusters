@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import styles from './LetterTap.module.css';
 
 function speak(phoneticSound) {
@@ -11,10 +11,21 @@ function speak(phoneticSound) {
   window.speechSynthesis.speak(u);
 }
 
+function shuffled(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export default function LetterTap({ task, onCorrect, onWrong }) {
   const [shakingOption, setShakingOption] = useState(null);
   const [glowOption, setGlowOption] = useState(null);
   const wrongAttemptsRef = useRef(0);
+  // Shuffle once per task (key prop ensures remount on new task)
+  const options = useMemo(() => shuffled(task.options), [task.options]);
 
   useEffect(() => {
     wrongAttemptsRef.current = 0;
