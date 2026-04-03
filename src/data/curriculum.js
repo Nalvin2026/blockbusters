@@ -9,12 +9,14 @@
 
 export const curriculum = [
   // ── LETTER_TAP ────────────────────────────────────────────────────────────
+  // letterSound uses phonetic spellings so TTS speaks the sound, not the name.
+  // e.g. C → "kuh" (not "see"), M → "mmm" (not "em")
   {
     id: 'lt_A',
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'a',
+    letterSound: 'ah',       // short a, as in apple
     correctAnswer: 'A',
     options: ['A', 'H', 'V'],
   },
@@ -23,7 +25,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'b',
+    letterSound: 'buh',      // b sound
     correctAnswer: 'B',
     options: ['B', 'K', 'Z'],
   },
@@ -32,7 +34,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'c',
+    letterSound: 'kuh',      // hard c/k sound (not "see")
     correctAnswer: 'C',
     options: ['C', 'X', 'L'],
   },
@@ -41,7 +43,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'd',
+    letterSound: 'duh',      // d sound
     correctAnswer: 'D',
     options: ['D', 'Y', 'W'],
   },
@@ -50,7 +52,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'f',
+    letterSound: 'fff',      // f sound — TTS will sustain the fricative
     correctAnswer: 'F',
     options: ['F', 'J', 'Q'],
   },
@@ -59,7 +61,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'g',
+    letterSound: 'guh',      // hard g sound
     correctAnswer: 'G',
     options: ['G', 'U', 'Z'],
   },
@@ -68,7 +70,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'h',
+    letterSound: 'huh',      // h sound (breathy)
     correctAnswer: 'H',
     options: ['H', 'K', 'V'],
   },
@@ -77,7 +79,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'i',
+    letterSound: 'ih',       // short i, as in insect
     correctAnswer: 'I',
     options: ['I', 'L', 'Y'],
   },
@@ -86,7 +88,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'm',
+    letterSound: 'mmm',      // m sound — sustained nasal
     correctAnswer: 'M',
     options: ['M', 'W', 'X'],
   },
@@ -95,7 +97,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'n',
+    letterSound: 'nnn',      // n sound — sustained nasal
     correctAnswer: 'N',
     options: ['N', 'Z', 'U'],
   },
@@ -104,7 +106,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'o',
+    letterSound: 'oh',       // short o, as in octopus
     correctAnswer: 'O',
     options: ['O', 'Q', 'C'],
   },
@@ -113,7 +115,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'p',
+    letterSound: 'puh',      // p sound
     correctAnswer: 'P',
     options: ['P', 'F', 'J'],
   },
@@ -122,7 +124,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'r',
+    letterSound: 'rrr',      // r sound — sustained
     correctAnswer: 'R',
     options: ['R', 'K', 'B'],
   },
@@ -131,7 +133,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 's',
+    letterSound: 'sss',      // s sound — sustained sibilant
     correctAnswer: 'S',
     options: ['S', 'C', 'G'],
   },
@@ -140,7 +142,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 't',
+    letterSound: 'tuh',      // t sound
     correctAnswer: 'T',
     options: ['T', 'Y', 'I'],
   },

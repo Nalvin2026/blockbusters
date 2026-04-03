@@ -1,14 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './LetterTap.module.css';
 
-function speak(text) {
+// Speak just the phonetic sound, twice with a pause — clear and slow for young learners.
+// We use two separate utterances queued back-to-back so the TTS engine
+// naturally pauses between them rather than running them together.
+function speak(phoneticSound) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-GB';
-  u.rate = 0.8;
-  u.pitch = 1.1;
-  window.speechSynthesis.speak(u);
+
+  function makeUtterance(text) {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-GB';
+    u.rate = 0.7;
+    u.pitch = 1.1;
+    return u;
+  }
+
+  window.speechSynthesis.speak(makeUtterance(phoneticSound));
+  window.speechSynthesis.speak(makeUtterance(phoneticSound));
 }
 
 export default function LetterTap({ task, onCorrect, onWrong }) {
@@ -22,7 +31,7 @@ export default function LetterTap({ task, onCorrect, onWrong }) {
     setGlowOption(null);
 
     const timer = setTimeout(() => {
-      speak(`Find the letter. ${task.letterSound}`);
+      speak(task.letterSound);
     }, 500);
 
     return () => {
