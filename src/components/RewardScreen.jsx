@@ -18,10 +18,32 @@ function starsFromStats(stats) {
   return 1;
 }
 
+const PRAISE_PHRASES = [
+  'Well done Ollie!',
+  'Nice one, Ollie!',
+  'Great job, Ollie!',
+  'Top work, Ollie!',
+  'Brilliant, Ollie!',
+  'Awesome stuff, Ollie!',
+  'You smashed it, Ollie!',
+  'Super work, Ollie!',
+  'Legend, Ollie!',
+  'So proud, Ollie!',
+  'You nailed it, Ollie!',
+  'Well done Oliver!',
+  'Nice one, Oliver!',
+  'Brilliant, Oliver!',
+  'You smashed it, Oliver!',
+  'Legend, Oliver!',
+];
+
 export default function RewardScreen({ sessionStats, audio, onContinue }) {
   const stars = starsFromStats(sessionStats);
   const [reward] = useState(
     () => REWARD_ITEMS[Math.floor(Math.random() * REWARD_ITEMS.length)]
+  );
+  const [praise] = useState(
+    () => PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)]
   );
   const [chestOpen, setChestOpen] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -37,7 +59,7 @@ export default function RewardScreen({ sessionStats, audio, onContinue }) {
       if (window.speechSynthesis) {
         window.speechSynthesis.cancel();
         const u = new SpeechSynthesisUtterance(
-          `Well done Ollie! You got a ${reward.name}!`
+          `${praise} You got a ${reward.name} and ${stars} ${stars === 1 ? 'star' : 'stars'}!`
         );
         u.lang = 'en-GB';
         u.rate = 0.85;
