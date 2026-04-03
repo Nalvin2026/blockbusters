@@ -1,0 +1,45 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.55);
+  border-bottom: 3px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.level {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.track {
+  flex: 1;
+  height: 16px;
+  background: #222;
+  border: 2px solid #555;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(to right, #3abe3a, #7fff7f);
+  transition: width 0.6s ease-out;
+  border-radius: 2px;
+}
+
+.xpText {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #aaffaa;
+  white-space: nowrap;
+  flex-shrink: 0;
+}

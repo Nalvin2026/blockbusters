@@ -1,0 +1,135 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: linear-gradient(to bottom, #1a2a0a, #2a3a1a);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.heading {
+  font-family: var(--font-pixel);
+  font-size: clamp(16px, 5vw, 26px);
+  color: var(--gold);
+  margin: 0;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.stars {
+  display: flex;
+  gap: 8px;
+}
+
+.starOn {
+  font-size: 48px;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255,215,0,0.7);
+}
+
+.starOff {
+  font-size: 48px;
+  color: #444;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.4);
+  border: 3px solid var(--stone);
+  padding: 16px 8px;
+  box-shadow:
+    inset -3px -3px 0 rgba(0,0,0,0.3),
+    inset 3px 3px 0 rgba(255,255,255,0.08);
+}
+
+.statValue {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--gold);
+  text-shadow: 1px 1px 0 #000;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ccc;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.playAgainBtn {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: #000;
+  background: var(--gold);
+  border: none;
+  padding: 18px;
+  min-height: 70px;
+  width: 100%;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow:
+    inset -5px -5px 0 rgba(0,0,0,0.3),
+    inset 5px 5px 0 rgba(255,255,255,0.3),
+    0 5px 0 #9A7D00;
+  transition: transform 0.1s;
+}
+
+.playAgainBtn:active {
+  transform: translateY(3px);
+  box-shadow:
+    inset -5px -5px 0 rgba(0,0,0,0.3),
+    inset 5px 5px 0 rgba(255,255,255,0.3),
+    0 2px 0 #9A7D00;
+}
+
+.homeBtn {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: #fff;
+  background: var(--stone);
+  border: none;
+  padding: 14px;
+  min-height: 60px;
+  width: 100%;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow:
+    inset -4px -4px 0 rgba(0,0,0,0.35),
+    inset 4px 4px 0 rgba(255,255,255,0.15),
+    0 4px 0 #444;
+  transition: transform 0.1s;
+}
+
+.homeBtn:active {
+  transform: translateY(3px);
+  box-shadow:
+    inset -4px -4px 0 rgba(0,0,0,0.35),
+    inset 4px 4px 0 rgba(255,255,255,0.15),
+    0 1px 0 #444;
+}

@@ -1,0 +1,133 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  min-height: 100%;
+  padding: 32px 24px 24px;
+  background: linear-gradient(to bottom, #87CEEB 0%, #6DB6E3 40%, var(--green) 40%, var(--green) 55%, var(--brown) 55%);
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  font-size: 56px;
+  animation: bounce 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-12px); }
+}
+
+.title,
+.titleLine2 {
+  font-family: var(--font-pixel);
+  font-size: clamp(22px, 6vw, 34px);
+  color: var(--gold);
+  margin: 0;
+  text-shadow:
+    3px 3px 0 #000,
+    -1px -1px 0 #000;
+  letter-spacing: 2px;
+}
+
+.titleLine2 {
+  font-size: clamp(18px, 5vw, 28px);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.6);
+  line-height: 1.5;
+}
+
+.subtitle p {
+  margin: 4px 0;
+}
+
+.playBtn {
+  font-family: var(--font-pixel);
+  font-size: 22px;
+  color: #000;
+  background: var(--gold);
+  border: none;
+  padding: 20px 40px;
+  min-width: 220px;
+  min-height: 80px;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow:
+    inset -6px -6px 0 rgba(0,0,0,0.3),
+    inset 6px 6px 0 rgba(255,255,255,0.3),
+    0 6px 0 #9A7D00;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.playBtn:active {
+  transform: translateY(4px);
+  box-shadow:
+    inset -6px -6px 0 rgba(0,0,0,0.3),
+    inset 6px 6px 0 rgba(255,255,255,0.3),
+    0 2px 0 #9A7D00;
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  padding: 12px 20px;
+  border: 3px solid var(--gold);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.8);
+}
+
+/* Decorative row of Minecraft blocks at the bottom */
+.decorBlocks {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.grassBlock,
+.dirtBlock,
+.stoneBlock {
+  width: 56px;
+  height: 56px;
+}
+
+.grassBlock {
+  background: var(--green);
+  box-shadow:
+    inset -4px -4px 0 var(--green-dark),
+    inset 4px 4px 0 var(--green-light);
+}
+
+.dirtBlock {
+  background: var(--brown);
+  box-shadow:
+    inset -4px -4px 0 #5C3E25,
+    inset 4px 4px 0 #A8835A;
+}
+
+.stoneBlock {
+  background: var(--stone);
+  box-shadow:
+    inset -4px -4px 0 #555,
+    inset 4px 4px 0 #aaa;
+}

@@ -1,0 +1,67 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  background: linear-gradient(to bottom, #3a2a1a 0%, #2a1a0a 100%);
+  /* Dirt/stone cave feel */
+  background-image:
+    linear-gradient(to bottom, #3a2a1a 0%, #2a1a0a 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%232a1a0a'/%3E%3Crect x='0' y='0' width='8' height='8' fill='%23332211' opacity='0.4'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23221100' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+.blocksRow {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding: 12px 16px 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.blockIcon {
+  width: 28px;
+  height: 28px;
+  background: var(--green);
+  box-shadow:
+    inset -3px -3px 0 var(--green-dark),
+    inset 3px 3px 0 var(--green-light);
+  transition: opacity 0.3s;
+}
+
+.broken {
+  background: var(--brown);
+  box-shadow:
+    inset -3px -3px 0 #5C3E25,
+    inset 3px 3px 0 #A8835A;
+  opacity: 0.5;
+}
+
+@keyframes crumble {
+  0%   { transform: scale(1) rotate(0deg); }
+  25%  { transform: scale(1.2) rotate(-8deg); }
+  50%  { transform: scale(0.85) rotate(6deg); }
+  75%  { transform: scale(1.05) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.crumbling {
+  animation: crumble 0.45s ease-in-out;
+}
+
+.counter {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #aaa;
+  padding: 4px 0 8px;
+}
+
+.taskArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 0 24px;
+}

@@ -1,0 +1,65 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Portrait content — always visible */
+.portrait {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rotate overlay — hidden by default */
+.rotateOverlay {
+  display: none;
+}
+
+/* Show rotate overlay ONLY on touch devices in landscape.
+   Desktop/laptop (pointer: fine) is never affected. */
+@media (pointer: coarse) and (orientation: landscape) {
+  .rotateOverlay {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: var(--green);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait {
+    visibility: hidden;
+  }
+}
+
+.rotateMsg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  text-align: center;
+  padding: 24px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.rotateIcon {
+  font-size: 56px;
+  animation: tilt 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes tilt {
+  from { transform: rotate(-30deg); }
+  to   { transform: rotate(30deg); }
+}
+
+.rotateMsg p {
+  margin: 0;
+  max-width: 280px;
+  line-height: 1.8;
+}

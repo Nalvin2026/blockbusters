@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  width: 100%;
+}
+
+.instruction {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.speakerBtn {
+  font-size: 48px;
+  width: 100px;
+  height: 100px;
+  border: 4px solid var(--gold);
+  background: var(--brown);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow:
+    inset -4px -4px 0 rgba(0,0,0,0.3),
+    inset 4px 4px 0 rgba(255,255,255,0.1);
+  transition: transform 0.1s;
+  touch-action: manipulation;
+}
+
+.speakerBtn:active {
+  transform: scale(0.93);
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.letterBlock {
+  width: 120px;
+  height: 120px;
+  font-family: var(--font-pixel);
+  font-size: 40px;
+  color: #fff;
+  background: var(--stone);
+  border: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  /* Minecraft-style block shading */
+  box-shadow:
+    inset -6px -6px 0 rgba(0,0,0,0.35),
+    inset 6px 6px 0 rgba(255,255,255,0.15);
+  transition: transform 0.1s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ensure exactly 3 fit on 375px+ screens */
+  flex-shrink: 0;
+}
+
+.letterBlock:active {
+  transform: scale(0.93);
+}
+
+/* Wrong answer — shake */
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-8px); }
+  40%  { transform: translateX(8px); }
+  60%  { transform: translateX(-6px); }
+  80%  { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.45s ease-in-out;
+  background: #8B3030;
+}
+
+/* Hint — glow the correct answer gold */
+@keyframes pulse {
+  0%, 100% { box-shadow: inset -6px -6px 0 rgba(0,0,0,0.35), inset 6px 6px 0 rgba(255,255,255,0.15), 0 0 0 0 var(--gold); }
+  50%       { box-shadow: inset -6px -6px 0 rgba(0,0,0,0.35), inset 6px 6px 0 rgba(255,255,255,0.15), 0 0 20px 6px var(--gold); }
+}
+
+.glow {
+  animation: pulse 1s ease-in-out infinite;
+  background: #7A6A10;
+}
