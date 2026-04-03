@@ -7,6 +7,11 @@ export default function HomeScreen({ onPlay, progress, audio }) {
     onPlay();
   }
 
+  function handleReset() {
+    localStorage.removeItem('blockbusters_progress');
+    window.location.reload();
+  }
+
   return (
     <div className={styles.screen}>
       <div className={styles.titleBlock}>
@@ -38,6 +43,10 @@ export default function HomeScreen({ onPlay, progress, audio }) {
         <div className={styles.stoneBlock} />
         <div className={styles.grassBlock} />
       </div>
+
+      <button className={styles.resetBtn} onClick={handleReset}>
+        reset progress
+      </button>
     </div>
   );
 }
