@@ -116,7 +116,7 @@ export const curriculum = [
     type: 'LETTER_TAP',
     phase: 1,
     layer: 'A',
-    letterSound: 'puh',      // p
+    letterSound: 'pu',       // p
     correctAnswer: 'p',
     options: ['p', 'f', 'j'],
   },
