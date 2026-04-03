@@ -74,7 +74,7 @@ export default function LetterTap({ task, onCorrect, onWrong }) {
       </button>
 
       <div className={styles.options}>
-        {task.options.map((option) => (
+        {options.map((option) => (
           <button
             key={option}
             className={[

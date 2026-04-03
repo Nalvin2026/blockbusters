@@ -1,4 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+
+function shuffled(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 import styles from './PictureMatch.module.css';
 
 function speak(label) {
@@ -15,6 +24,7 @@ export default function PictureMatch({ task, onCorrect, onWrong }) {
   const [shakingOption, setShakingOption] = useState(null);
   const [glowOption, setGlowOption] = useState(null);
   const wrongAttemptsRef = useRef(0);
+  const options = useMemo(() => shuffled(task.options), [task.options]);
 
   useEffect(() => {
     wrongAttemptsRef.current = 0;
@@ -65,7 +75,7 @@ export default function PictureMatch({ task, onCorrect, onWrong }) {
       </div>
 
       <div className={styles.options}>
-        {task.options.map((option) => (
+        {options.map((option) => (
           <button
             key={option}
             className={[
