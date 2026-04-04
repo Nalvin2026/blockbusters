@@ -9,6 +9,11 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>
 );
 
+// Lock to landscape on devices that support it (Android/Chrome — iOS ignores this)
+if (screen?.orientation?.lock) {
+  screen.orientation.lock('landscape').catch(() => {/* silently ignore if denied */});
+}
+
 // Register service worker in production only
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
