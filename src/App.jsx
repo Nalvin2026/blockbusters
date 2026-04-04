@@ -31,11 +31,11 @@ export default function App() {
 
   return (
     <div className={styles.app}>
-      {/* Portrait-lock overlay — only shows on touch devices in landscape */}
+      {/* Landscape-lock overlay — only shows on touch devices in portrait */}
       <div className={styles.rotateOverlay}>
         <div className={styles.rotateMsg}>
           <span className={styles.rotateIcon}>📱</span>
-          <p>Please rotate your device to portrait mode</p>
+          <p>Please rotate your device to landscape mode</p>
         </div>
       </div>
 

@@ -17,9 +17,9 @@
   display: none;
 }
 
-/* Show rotate overlay ONLY on touch devices in landscape.
+/* Show rotate overlay ONLY on touch devices in portrait.
    Desktop/laptop (pointer: fine) is never affected. */
-@media (pointer: coarse) and (orientation: landscape) {
+@media (pointer: coarse) and (orientation: portrait) {
   .rotateOverlay {
     display: flex;
     position: fixed;
