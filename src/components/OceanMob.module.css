@@ -1,0 +1,111 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 20, 60, 0.75);
+  z-index: 20;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: popIn 0.18s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.warning {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: #38bdf8;
+  margin: 0;
+  text-shadow: 0 0 10px #0ea5e9;
+}
+
+.sub {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #aaa;
+  margin: 0;
+}
+
+/*
+ * Pixel-art shark — 8×8px pixels, 10 cols × 7 rows.
+ * S = shark body (#4b9fd4 blue-grey), F = fin (#2563a8 dark), D = dark detail, T = teeth (#fff)
+ *
+ * . . F . . . . . . .   <- dorsal fin tip
+ * . F F F . . . . . .   <- dorsal fin
+ * S S S S S S S S S S   <- body top
+ * S S S S S S S S S S   <- body mid (eye at col 1 = dark)
+ * S S S S S S S S S S   <- body bottom
+ * . . . . . . F . F .   <- tail base
+ * . . . . . . F . F .   <- tail tips
+ */
+.sharkWrap {
+  width: 80px;
+  height: 56px;
+  position: relative;
+  animation: swim 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes swim {
+  from { transform: translateX(-4px); }
+  to   { transform: translateX(4px); }
+}
+
+.shark {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  box-shadow:
+    /* Dorsal fin */
+    16px 0px 0 4px #2563a8,
+    8px 8px 0 4px #2563a8,
+    16px 8px 0 4px #2563a8,
+    24px 8px 0 4px #2563a8,
+    /* Body rows */
+    0px 16px 0 4px #4b9fd4,
+    8px 16px 0 4px #4b9fd4,
+    16px 16px 0 4px #4b9fd4,
+    24px 16px 0 4px #4b9fd4,
+    32px 16px 0 4px #4b9fd4,
+    40px 16px 0 4px #4b9fd4,
+    48px 16px 0 4px #4b9fd4,
+    56px 16px 0 4px #4b9fd4,
+    64px 16px 0 4px #4b9fd4,
+    72px 16px 0 4px #4b9fd4,
+    0px 24px 0 4px #4b9fd4,
+    8px 24px 0 4px #0c2a5e,  /* eye */
+    16px 24px 0 4px #4b9fd4,
+    24px 24px 0 4px #4b9fd4,
+    32px 24px 0 4px #4b9fd4,
+    40px 24px 0 4px #4b9fd4,
+    48px 24px 0 4px #4b9fd4,
+    56px 24px 0 4px #4b9fd4,
+    64px 24px 0 4px #4b9fd4,
+    72px 24px 0 4px #4b9fd4,
+    0px 32px 0 4px #d0e8f5,  /* belly */
+    8px 32px 0 4px #d0e8f5,
+    16px 32px 0 4px #d0e8f5,
+    24px 32px 0 4px #d0e8f5,
+    32px 32px 0 4px #d0e8f5,
+    40px 32px 0 4px #d0e8f5,
+    48px 32px 0 4px #d0e8f5,
+    56px 32px 0 4px #4b9fd4,
+    64px 32px 0 4px #4b9fd4,
+    72px 32px 0 4px #4b9fd4,
+    /* Tail */
+    56px 40px 0 4px #2563a8,
+    72px 40px 0 4px #2563a8,
+    56px 48px 0 4px #2563a8,
+    72px 48px 0 4px #2563a8;
+}

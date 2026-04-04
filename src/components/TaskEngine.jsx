@@ -2,6 +2,9 @@ import { useRef, useEffect } from 'react';
 import LetterTap from '../tasks/LetterTap';
 import PictureMatch from '../tasks/PictureMatch';
 import DigraphSpot from '../tasks/DigraphSpot';
+import MissingVowel from '../tasks/MissingVowel';
+import RhymeMatch from '../tasks/RhymeMatch';
+import WordSort from '../tasks/WordSort';
 
 /**
  * Routes a task object to the correct task UI component.
@@ -44,6 +47,18 @@ export default function TaskEngine({ task, onCorrect, onWrong }) {
 
   if (task.type === 'DIGRAPH_SPOT') {
     return <DigraphSpot task={task} onCorrect={handleCorrect} onWrong={handleWrong} />;
+  }
+
+  if (task.type === 'MISSING_VOWEL') {
+    return <MissingVowel task={task} onCorrect={handleCorrect} onWrong={handleWrong} />;
+  }
+
+  if (task.type === 'RHYME_MATCH') {
+    return <RhymeMatch task={task} onCorrect={handleCorrect} onWrong={handleWrong} />;
+  }
+
+  if (task.type === 'WORD_SORT') {
+    return <WordSort task={task} onCorrect={handleCorrect} onWrong={handleWrong} />;
   }
 
   return null;

@@ -641,4 +641,223 @@ export const curriculum = [
     correctAnswer: 'ck',
     options: ['ck', 'wh', 'sh'],
   },
+
+  // ── MISSING_VOWEL (Phase 3 — Crystal Cavern) ──────────────────────────────
+  // TTS speaks the full word clearly. Player sees emoji + word with vowel
+  // blanked (c_t). Tap the correct short vowel from a · e · i · o · u.
+
+  // Short-a words
+  { id: 'mv_cat', type: 'MISSING_VOWEL', phase: 3, emoji: '🐱', word: 'cat', correctAnswer: 'a' },
+  { id: 'mv_hat', type: 'MISSING_VOWEL', phase: 3, emoji: '🎩', word: 'hat', correctAnswer: 'a' },
+  { id: 'mv_bag', type: 'MISSING_VOWEL', phase: 3, emoji: '👜', word: 'bag', correctAnswer: 'a' },
+  { id: 'mv_map', type: 'MISSING_VOWEL', phase: 3, emoji: '🗺️', word: 'map', correctAnswer: 'a' },
+  { id: 'mv_pan', type: 'MISSING_VOWEL', phase: 3, emoji: '🍳', word: 'pan', correctAnswer: 'a' },
+
+  // Short-e words
+  { id: 'mv_bed', type: 'MISSING_VOWEL', phase: 3, emoji: '🛏️', word: 'bed', correctAnswer: 'e' },
+  { id: 'mv_hen', type: 'MISSING_VOWEL', phase: 3, emoji: '🐔', word: 'hen', correctAnswer: 'e' },
+  { id: 'mv_pet', type: 'MISSING_VOWEL', phase: 3, emoji: '🐾', word: 'pet', correctAnswer: 'e' },
+
+  // Short-i words
+  { id: 'mv_pig', type: 'MISSING_VOWEL', phase: 3, emoji: '🐷', word: 'pig', correctAnswer: 'i' },
+  { id: 'mv_bin', type: 'MISSING_VOWEL', phase: 3, emoji: '🗑️', word: 'bin', correctAnswer: 'i' },
+
+  // Short-o words
+  { id: 'mv_dog', type: 'MISSING_VOWEL', phase: 3, emoji: '🐕', word: 'dog', correctAnswer: 'o' },
+  { id: 'mv_pot', type: 'MISSING_VOWEL', phase: 3, emoji: '🪴', word: 'pot', correctAnswer: 'o' },
+
+  // Short-u words
+  { id: 'mv_bug', type: 'MISSING_VOWEL', phase: 3, emoji: '🐛', word: 'bug', correctAnswer: 'u' },
+  { id: 'mv_cup', type: 'MISSING_VOWEL', phase: 3, emoji: '☕', word: 'cup', correctAnswer: 'u' },
+  { id: 'mv_sun', type: 'MISSING_VOWEL', phase: 3, emoji: '☀️', word: 'sun', correctAnswer: 'u' },
+
+  // ── RHYME_MATCH (Phase 4 — Ocean Temple) ──────────────────────────────────
+  // TTS speaks the prompt word. Player taps the rhyming word from 3 options.
+  // prompt: { word, emoji } shown prominently. options: [{ word, emoji }].
+
+  {
+    id: 'rm_cat',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'cat', emoji: '🐱' },
+    options: [
+      { word: 'bat', emoji: '🦇' },
+      { word: 'dog', emoji: '🐕' },
+      { word: 'cup', emoji: '☕' },
+    ],
+    correctAnswer: 'bat',
+  },
+  {
+    id: 'rm_dog',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'dog', emoji: '🐕' },
+    options: [
+      { word: 'log', emoji: '🪵' },
+      { word: 'hat', emoji: '🎩' },
+      { word: 'bin', emoji: '🗑️' },
+    ],
+    correctAnswer: 'log',
+  },
+  {
+    id: 'rm_bin',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'bin', emoji: '🗑️' },
+    options: [
+      { word: 'pin', emoji: '📌' },
+      { word: 'bed', emoji: '🛏️' },
+      { word: 'sun', emoji: '☀️' },
+    ],
+    correctAnswer: 'pin',
+  },
+  {
+    id: 'rm_bed',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'bed', emoji: '🛏️' },
+    options: [
+      { word: 'red', emoji: '🔴' },
+      { word: 'dog', emoji: '🐕' },
+      { word: 'cup', emoji: '☕' },
+    ],
+    correctAnswer: 'red',
+  },
+  {
+    id: 'rm_sun',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'sun', emoji: '☀️' },
+    options: [
+      { word: 'run', emoji: '🏃' },
+      { word: 'hat', emoji: '🎩' },
+      { word: 'bin', emoji: '🗑️' },
+    ],
+    correctAnswer: 'run',
+  },
+  {
+    id: 'rm_pet',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'pet', emoji: '🐾' },
+    options: [
+      { word: 'net', emoji: '🥅' },
+      { word: 'sun', emoji: '☀️' },
+      { word: 'dog', emoji: '🐕' },
+    ],
+    correctAnswer: 'net',
+  },
+  {
+    id: 'rm_cup',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'cup', emoji: '☕' },
+    options: [
+      { word: 'pup', emoji: '🐶' },
+      { word: 'bin', emoji: '🗑️' },
+      { word: 'bed', emoji: '🛏️' },
+    ],
+    correctAnswer: 'pup',
+  },
+  {
+    id: 'rm_hat',
+    type: 'RHYME_MATCH',
+    phase: 4,
+    prompt: { word: 'hat', emoji: '🎩' },
+    options: [
+      { word: 'cat', emoji: '🐱' },
+      { word: 'sun', emoji: '☀️' },
+      { word: 'cup', emoji: '☕' },
+    ],
+    correctAnswer: 'cat',
+  },
+
+  // ── WORD_SORT (Phase 4 — Ocean Temple) ────────────────────────────────────
+  // Shows a target short vowel. Player taps the word that contains that vowel.
+  // options: [{ word, emoji }] — one correct, two distractors with other vowels.
+
+  {
+    id: 'ws_a1',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'a',
+    options: [
+      { word: 'hat', emoji: '🎩' },
+      { word: 'dog', emoji: '🐕' },
+      { word: 'bin', emoji: '🗑️' },
+    ],
+    correctAnswer: 'hat',
+  },
+  {
+    id: 'ws_e1',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'e',
+    options: [
+      { word: 'bed', emoji: '🛏️' },
+      { word: 'sun', emoji: '☀️' },
+      { word: 'pig', emoji: '🐷' },
+    ],
+    correctAnswer: 'bed',
+  },
+  {
+    id: 'ws_i1',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'i',
+    options: [
+      { word: 'pig', emoji: '🐷' },
+      { word: 'cup', emoji: '☕' },
+      { word: 'hat', emoji: '🎩' },
+    ],
+    correctAnswer: 'pig',
+  },
+  {
+    id: 'ws_o1',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'o',
+    options: [
+      { word: 'dog', emoji: '🐕' },
+      { word: 'bin', emoji: '🗑️' },
+      { word: 'pet', emoji: '🐾' },
+    ],
+    correctAnswer: 'dog',
+  },
+  {
+    id: 'ws_u1',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'u',
+    options: [
+      { word: 'cup', emoji: '☕' },
+      { word: 'hat', emoji: '🎩' },
+      { word: 'bed', emoji: '🛏️' },
+    ],
+    correctAnswer: 'cup',
+  },
+  {
+    id: 'ws_a2',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'a',
+    options: [
+      { word: 'cat', emoji: '🐱' },
+      { word: 'pet', emoji: '🐾' },
+      { word: 'sun', emoji: '☀️' },
+    ],
+    correctAnswer: 'cat',
+  },
+  {
+    id: 'ws_i2',
+    type: 'WORD_SORT',
+    phase: 4,
+    targetVowel: 'i',
+    options: [
+      { word: 'bin', emoji: '🗑️' },
+      { word: 'dog', emoji: '🐕' },
+      { word: 'cup', emoji: '☕' },
+    ],
+    correctAnswer: 'bin',
+  },
 ];

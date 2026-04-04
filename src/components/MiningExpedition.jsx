@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import XPBar from './XPBar';
 import TaskEngine from './TaskEngine';
 import DesertMob from './DesertMob';
+import CaveBat from './CaveBat';
+import OceanMob from './OceanMob';
 import { curriculum } from '../data/curriculum';
 import styles from './MiningExpedition.module.css';
 
@@ -29,8 +31,10 @@ export default function MiningExpedition({
   completeSession,
   onComplete,
 }) {
-  const phase = zone === 'desert' ? 2 : 1;
+  const phase = zone === 'ocean' ? 4 : zone === 'crystal' ? 3 : zone === 'desert' ? 2 : 1;
   const isDesert = zone === 'desert';
+  const isCrystal = zone === 'crystal';
+  const isOcean = zone === 'ocean';
 
   const tasks = useMemo(() => {
     const pool = curriculum.filter((t) => t.phase === phase);
@@ -62,7 +66,7 @@ export default function MiningExpedition({
     });
 
     const isLastBlock = currentIndex === TOTAL_BLOCKS - 1;
-    const triggerMob = isDesert && !isLastBlock && MOB_AFTER.has(currentIndex);
+    const triggerMob = (isDesert || isCrystal || isOcean) && !isLastBlock && MOB_AFTER.has(currentIndex);
     const delay = triggerMob ? 2400 : 500;
 
     if (triggerMob) {
@@ -98,7 +102,7 @@ export default function MiningExpedition({
   const task = tasks[currentIndex];
 
   return (
-    <div className={[styles.screen, isDesert ? styles.desertScreen : ''].join(' ')}>
+    <div className={[styles.screen, isDesert ? styles.desertScreen : isCrystal ? styles.crystalScreen : isOcean ? styles.oceanScreen : ''].join(' ')}>
       <XPBar progress={progress} xpProgress={xpProgress} />
 
       <div className={styles.blocksRow} aria-label="Progress">
@@ -107,12 +111,12 @@ export default function MiningExpedition({
             key={i}
             className={[
               styles.blockIcon,
-              isDesert ? styles.sandBlock : '',
-              broken ? (isDesert ? styles.sandBroken : styles.broken) : '',
+              isDesert ? styles.sandBlock : isCrystal ? styles.crystalBlock : isOcean ? styles.coralBlock : '',
+              broken
+                ? isDesert ? styles.sandBroken : isCrystal ? styles.crystalBroken : isOcean ? styles.coralBroken : styles.broken
+                : '',
               crumblingIndex === i
-                ? isDesert
-                  ? styles.falling
-                  : styles.crumbling
+                ? isDesert ? styles.falling : isCrystal ? styles.shattering : isOcean ? styles.bubbling : styles.crumbling
                 : '',
             ].join(' ')}
           />
@@ -132,7 +136,9 @@ export default function MiningExpedition({
         />
       </div>
 
-      {showMob && <DesertMob />}
+      {showMob && isDesert && <DesertMob />}
+      {showMob && isCrystal && <CaveBat />}
+      {showMob && isOcean && <OceanMob />}
     </div>
   );
 }

@@ -1,0 +1,107 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 20;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: popIn 0.18s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.warning {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: #c084fc;
+  margin: 0;
+  text-shadow: 0 0 10px #7c3aed;
+}
+
+.sub {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #aaa;
+  margin: 0;
+}
+
+/*
+ * Pixel-art bat — box-shadow grid, 8×8px pixels, 8 cols × 7 rows.
+ *
+ * Layout (. = transparent, X = bat colour #1a0a2e dark body, W = wing #7c3aed):
+ * Row 0:  . W . . . . W .   wings top
+ * Row 1:  W W W . . W W W   wings spread
+ * Row 2:  W W W X X W W W   wings + body top
+ * Row 3:  . W W X X W W .   wings + body mid
+ * Row 4:  . . W X X W . .   wings + body bottom
+ * Row 5:  . . . X X . . .   feet
+ * Row 6:  . . X . . X . .   claws
+ */
+.batWrap {
+  width: 64px;
+  height: 56px;
+  position: relative;
+  animation: flap 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes flap {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(0.75); }
+}
+
+.bat {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  box-shadow:
+    /* Row 0 — ear tips */
+    8px 0px 0 4px #c084fc,
+    48px 0px 0 4px #c084fc,
+    /* Row 1 — wings spread */
+    0px 8px 0 4px #7c3aed,
+    8px 8px 0 4px #7c3aed,
+    16px 8px 0 4px #7c3aed,
+    40px 8px 0 4px #7c3aed,
+    48px 8px 0 4px #7c3aed,
+    56px 8px 0 4px #7c3aed,
+    /* Row 2 — wings + body top */
+    0px 16px 0 4px #7c3aed,
+    8px 16px 0 4px #7c3aed,
+    16px 16px 0 4px #7c3aed,
+    24px 16px 0 4px #2d0a52,
+    32px 16px 0 4px #2d0a52,
+    40px 16px 0 4px #7c3aed,
+    48px 16px 0 4px #7c3aed,
+    56px 16px 0 4px #7c3aed,
+    /* Row 3 — wings + body mid */
+    8px 24px 0 4px #7c3aed,
+    16px 24px 0 4px #7c3aed,
+    24px 24px 0 4px #2d0a52,
+    32px 24px 0 4px #2d0a52,
+    40px 24px 0 4px #7c3aed,
+    48px 24px 0 4px #7c3aed,
+    /* Row 4 — lower wings + body */
+    16px 32px 0 4px #7c3aed,
+    24px 32px 0 4px #2d0a52,
+    32px 32px 0 4px #2d0a52,
+    40px 32px 0 4px #7c3aed,
+    /* Row 5 — feet */
+    24px 40px 0 4px #2d0a52,
+    32px 40px 0 4px #2d0a52,
+    /* Row 6 — claws */
+    16px 48px 0 4px #c084fc,
+    40px 48px 0 4px #c084fc;
+}
