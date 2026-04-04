@@ -67,7 +67,7 @@ export default function MiningExpedition({
 
     const isLastBlock = currentIndex === TOTAL_BLOCKS - 1;
     const triggerMob = (isDesert || isCrystal || isOcean) && !isLastBlock && MOB_AFTER.has(currentIndex);
-    const delay = triggerMob ? 2400 : 500;
+    const delay = triggerMob ? 4000 : 500;
 
     if (triggerMob) {
       setTimeout(() => setShowMob(true), 500);

@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.88);
   z-index: 20;
 }
 
@@ -49,8 +49,8 @@
  * Row 6:  . . X . . X . .   claws
  */
 .batWrap {
-  width: 64px;
-  height: 56px;
+  width: 128px;
+  height: 112px;
   position: relative;
   animation: flap 0.4s ease-in-out infinite alternate;
 }
@@ -62,46 +62,46 @@
 
 .bat {
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 8px;
+  left: 8px;
   width: 0;
   height: 0;
   box-shadow:
     /* Row 0 — ear tips */
-    8px 0px 0 4px #c084fc,
-    48px 0px 0 4px #c084fc,
+    16px  0px 0 8px #c084fc,
+    96px  0px 0 8px #c084fc,
     /* Row 1 — wings spread */
-    0px 8px 0 4px #7c3aed,
-    8px 8px 0 4px #7c3aed,
-    16px 8px 0 4px #7c3aed,
-    40px 8px 0 4px #7c3aed,
-    48px 8px 0 4px #7c3aed,
-    56px 8px 0 4px #7c3aed,
+     0px 16px 0 8px #7c3aed,
+    16px 16px 0 8px #7c3aed,
+    32px 16px 0 8px #7c3aed,
+    80px 16px 0 8px #7c3aed,
+    96px 16px 0 8px #7c3aed,
+   112px 16px 0 8px #7c3aed,
     /* Row 2 — wings + body top */
-    0px 16px 0 4px #7c3aed,
-    8px 16px 0 4px #7c3aed,
-    16px 16px 0 4px #7c3aed,
-    24px 16px 0 4px #2d0a52,
-    32px 16px 0 4px #2d0a52,
-    40px 16px 0 4px #7c3aed,
-    48px 16px 0 4px #7c3aed,
-    56px 16px 0 4px #7c3aed,
+     0px 32px 0 8px #7c3aed,
+    16px 32px 0 8px #7c3aed,
+    32px 32px 0 8px #7c3aed,
+    48px 32px 0 8px #2d0a52,
+    64px 32px 0 8px #2d0a52,
+    80px 32px 0 8px #7c3aed,
+    96px 32px 0 8px #7c3aed,
+   112px 32px 0 8px #7c3aed,
     /* Row 3 — wings + body mid */
-    8px 24px 0 4px #7c3aed,
-    16px 24px 0 4px #7c3aed,
-    24px 24px 0 4px #2d0a52,
-    32px 24px 0 4px #2d0a52,
-    40px 24px 0 4px #7c3aed,
-    48px 24px 0 4px #7c3aed,
+    16px 48px 0 8px #7c3aed,
+    32px 48px 0 8px #7c3aed,
+    48px 48px 0 8px #2d0a52,
+    64px 48px 0 8px #2d0a52,
+    80px 48px 0 8px #7c3aed,
+    96px 48px 0 8px #7c3aed,
     /* Row 4 — lower wings + body */
-    16px 32px 0 4px #7c3aed,
-    24px 32px 0 4px #2d0a52,
-    32px 32px 0 4px #2d0a52,
-    40px 32px 0 4px #7c3aed,
+    32px 64px 0 8px #7c3aed,
+    48px 64px 0 8px #2d0a52,
+    64px 64px 0 8px #2d0a52,
+    80px 64px 0 8px #7c3aed,
     /* Row 5 — feet */
-    24px 40px 0 4px #2d0a52,
-    32px 40px 0 4px #2d0a52,
+    48px 80px 0 8px #2d0a52,
+    64px 80px 0 8px #2d0a52,
     /* Row 6 — claws */
-    16px 48px 0 4px #c084fc,
-    40px 48px 0 4px #c084fc;
+    32px 96px 0 8px #c084fc,
+    80px 96px 0 8px #c084fc;
 }
