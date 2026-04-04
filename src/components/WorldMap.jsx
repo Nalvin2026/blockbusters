@@ -56,7 +56,9 @@ export default function WorldMap({ onExplore, onBack, progress }) {
               <span className={styles.zoneEmoji}>{zone.emoji}</span>
               <div className={styles.zoneInfo}>
                 <span className={styles.zoneName}>{zone.name}</span>
-                <span className={styles.zoneDesc}>{zone.description}</span>
+                <span className={styles.zoneDesc}>
+                  {unlocked ? zone.description : `Unlock at Level ${zone.minLevel}`}
+                </span>
               </div>
               {unlocked ? (
                 <button className={styles.exploreBtn} onClick={() => onExplore(zone.id)}>
